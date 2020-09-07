@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+
+import FormStyles from "./styles/Form.styles";
 
 const Form = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [terms, setTerms] = useState(false);
+
   return (
-    <form>
+    <FormStyles onSubmit={(e) => e.preventDefault()}>
       <label htmlFor="name">
         Name
         <input type="text" id="name" name="name" />
@@ -17,12 +24,12 @@ const Form = () => {
       </label>
 
       <label htmlFor="terms">
-        I agree Terms of Service
-        <input type="checkbox" id="terms" name="terms" />
+        <input type="checkbox" id="terms" name="terms" />I agree to the Terms of
+        Service
       </label>
 
-      <input type="submit" />
-    </form>
+      <input type="submit" value="Submit" />
+    </FormStyles>
   );
 };
 
