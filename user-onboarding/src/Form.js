@@ -8,24 +8,52 @@ const Form = () => {
   const [password, setPassword] = useState("");
   const [terms, setTerms] = useState(false);
 
+  const testFunc = (e) => {
+    e.preventDefault();
+
+    switch (e.target.name) {
+      case "name":
+        setName(e.target.value);
+        break;
+      case "email":
+        setEmail(e.target.value);
+        break;
+      case "password":
+        setPassword(e.target.value);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <FormStyles onSubmit={(e) => e.preventDefault()}>
       <label htmlFor="name">
         Name
-        <input type="text" id="name" name="name" />
+        <input onChange={testFunc} type="text" id="name" name="name" />
       </label>
       <label htmlFor="email">
         Email
-        <input type="email" id="email" name="email" />
+        <input onChange={testFunc} type="email" id="email" name="email" />
       </label>
       <label htmlFor="password">
         Password
-        <input type="password" id="password" name="password" />
+        <input
+          onChange={testFunc}
+          type="password"
+          id="password"
+          name="password"
+        />
       </label>
-
       <label htmlFor="terms">
-        <input type="checkbox" id="terms" name="terms" />I agree to the Terms of
-        Service
+        <input
+          checked={terms}
+          onChange={(e) => setTerms(!terms)}
+          type="checkbox"
+          id="terms"
+          name="terms"
+        />
+        I agree to the Terms of Service
       </label>
 
       <input type="submit" value="Submit" />
