@@ -47,15 +47,28 @@ const Form = ({ users, setUsers }) => {
 		<FormStyles onSubmit={onSubmit}>
 			<label htmlFor="name">
 				Name
-				<input onChange={testFunc} type="text" id="name" name="name" />
+				<input
+					className="textBox"
+					onChange={testFunc}
+					type="text"
+					id="name"
+					name="name"
+				/>
 			</label>
 			<label htmlFor="email">
 				Email
-				<input onChange={testFunc} type="email" id="email" name="email" />
+				<input
+					className="textBox"
+					onChange={testFunc}
+					type="email"
+					id="email"
+					name="email"
+				/>
 			</label>
 			<label htmlFor="password">
 				Password
 				<input
+					className="textBox"
 					onChange={testFunc}
 					type="password"
 					id="password"
@@ -73,7 +86,7 @@ const Form = ({ users, setUsers }) => {
 				I agree to the Terms of Service
 			</label>
 
-			<input type="submit" value="Submit" />
+			<input id="submit" type="submit" value="Submit" />
 		</FormStyles>
 	);
 };

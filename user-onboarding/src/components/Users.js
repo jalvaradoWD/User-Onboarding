@@ -4,11 +4,11 @@ import User from "./User";
 
 const Users = ({ users }) => {
 	return (
-		<div>
+		<section>
 			{users.map((user) => {
 				return <User user={user} />;
 			})}
-		</div>
+		</section>
 	);
 };
 
