@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import FormStyles from "./styles/Form.styles";
+import FormStyles from "../styles/Form.styles";
 
 import axios from "axios";
 
-const Form = () => {
+const Form = ({ users, setUsers }) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -20,11 +20,9 @@ const Form = () => {
 			terms,
 		};
 
-		console.log("Pressed the submit button");
-
-		axios
-			.post("https://reqres.in/api/users", userInfo)
-			.then((res) => console.log(res));
+		axios.post("https://reqres.in/api/users", userInfo).then((res) => {
+			setUsers([...users, res.data]);
+		});
 	};
 
 	const testFunc = (e) => {
