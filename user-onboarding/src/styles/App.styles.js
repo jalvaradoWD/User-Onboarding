@@ -25,4 +25,5 @@ export default styled.div`
 	}
 
 	grid-template-areas: "title title" "users form";
+	column-gap: 10rem;
 `;

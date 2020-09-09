@@ -25,7 +25,7 @@ const Form = ({ users, setUsers }) => {
 		});
 	};
 
-	const testFunc = (e) => {
+	const changeState = (e) => {
 		e.preventDefault();
 
 		switch (e.target.name) {
@@ -49,7 +49,7 @@ const Form = ({ users, setUsers }) => {
 				Name
 				<input
 					className="textBox"
-					onChange={testFunc}
+					onChange={changeState}
 					type="text"
 					id="name"
 					name="name"
@@ -59,7 +59,7 @@ const Form = ({ users, setUsers }) => {
 				Email
 				<input
 					className="textBox"
-					onChange={testFunc}
+					onChange={changeState}
 					type="email"
 					id="email"
 					name="email"
@@ -69,7 +69,7 @@ const Form = ({ users, setUsers }) => {
 				Password
 				<input
 					className="textBox"
-					onChange={testFunc}
+					onChange={changeState}
 					type="password"
 					id="password"
 					name="password"
