@@ -5,8 +5,8 @@ import User from "./User";
 const Users = ({ users }) => {
 	return (
 		<section>
-			{users.map((user) => {
-				return <User user={user} />;
+			{users.map((user, index) => {
+				return <User user={user} key={index} />;
 			})}
 		</section>
 	);

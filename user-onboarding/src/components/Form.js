@@ -5,18 +5,28 @@ import FormStyles from "../styles/Form.styles";
 import axios from "axios";
 
 const Form = ({ users, setUsers }) => {
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [formState, setFormState] = useState({
+		name: "",
+		email: "",
+		password: "",
+	});
+
 	const [terms, setTerms] = useState(false);
+
+	const onChange = (e) => {
+		e.preventDefault();
+
+		const targetName = e.target.name;
+		const value = e.target.value;
+
+		setFormState({ ...formState, [targetName]: value });
+	};
 
 	const onSubmit = (e) => {
 		e.preventDefault();
 
 		const userInfo = {
-			name,
-			email,
-			password,
+			...formState,
 			terms,
 		};
 
@@ -25,31 +35,13 @@ const Form = ({ users, setUsers }) => {
 		});
 	};
 
-	const changeState = (e) => {
-		e.preventDefault();
-
-		switch (e.target.name) {
-			case "name":
-				setName(e.target.value);
-				break;
-			case "email":
-				setEmail(e.target.value);
-				break;
-			case "password":
-				setPassword(e.target.value);
-				break;
-			default:
-				break;
-		}
-	};
-
 	return (
 		<FormStyles onSubmit={onSubmit}>
 			<label htmlFor="name">
 				Name
 				<input
 					className="textBox"
-					onChange={changeState}
+					onChange={onChange}
 					type="text"
 					id="name"
 					name="name"
@@ -59,7 +51,7 @@ const Form = ({ users, setUsers }) => {
 				Email
 				<input
 					className="textBox"
-					onChange={changeState}
+					onChange={onChange}
 					type="email"
 					id="email"
 					name="email"
@@ -69,7 +61,7 @@ const Form = ({ users, setUsers }) => {
 				Password
 				<input
 					className="textBox"
-					onChange={changeState}
+					onChange={onChange}
 					type="password"
 					id="password"
 					name="password"
